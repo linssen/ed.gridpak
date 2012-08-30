@@ -32,6 +32,10 @@
 
 // @start BODY -------------------- //
 
+html,
+body {
+    height:100%;
+}
 body {
     background-color:$white;
     color:$black;
@@ -356,6 +360,7 @@ h6 {
 
 h1 {
     font-size:calc-em($baseh1);
+    font-weight:$semibold;
     // line-height:;
     // margin-bottom:calc-em(20, $baseh1);
 }
@@ -366,30 +371,6 @@ h2 {
     // margin-bottom:calc-em(20, $baseh2);
 }
 
-h3 {
-    font-size:calc-em($baseh3);
-    // line-height:;
-    // margin-bottom:calc-em(20, $baseh3);
-}
-
-h4 {
-    font-size:calc-em($baseh4);
-    // line-height:;
-    // margin-bottom:calc-em(20, $baseh4);
-}
-
-// h5 {
-//     font-size:calc-em($baseh5);
-//     line-height:;
-//     margin-bottom:calc-em(20, $baseh5);
-// }
-
-// h6 {
-//     font-size:calc-em($baseh6);
-//     line-height:;
-//     margin-bottom:calc-em(20, $baseh6);
-// }
-
 // @end HEADLINES //
 
 
@@ -397,7 +378,7 @@ h4 {
 // @start LINKS -------------------- //
 
 a {
-    
+    text-decoration:none; 
 
     &:hover,
     &:focus {
@@ -412,7 +393,8 @@ a {
 // @start LAYOUT -------------------- //
 
 div#page {
-    
+    height:100%;
+    position:relative;
 }
 
 div#content_wrapper {
@@ -430,36 +412,44 @@ div#content_wrapper {
     // @start HEADER & BRANDING -------------------- //
 
     #header {
-        
-    }
-
-    #branding {
-        margin:0;
-        padding:0;
+        background:$black; 
+        color:$grey1;
+        overflow:hidden;
+        padding:calc-em(20) calc-em(23);
 
         a {
-            display:block;
-            height:102px;
-            width:160px;
+            color:$grey1;
         }
-
-        .svg & {
-            background-image:url("../images/branding/branding.svg");
-            background-repeat:no-repeat;
-
-            img {
-                visibility:hidden;
-            }
+        h1,
+        h2 {
+            float:left;
         }
-
-    } // #branding
+        h1 a {
+            color:$white;
+        }
+    }
 
     // @end HEADER & BRANDING //
 
     // @start FOOTER -------------------- //
 
     #footer {
+        border-top:1px solid #bbb;
+        background:$white;
+        padding:calc-em(18) calc-em(20);
+        overflow:hidden;
         
+        .credit {
+            float:right;
+        }
+    }
+
+    #download {
+        float:left;
+        background:#D43033;
+        border:0;
+        color:$white;
+        padding:calc-em(10) calc-em(20);
     }
 
     // @end FOOTER //
@@ -491,6 +481,7 @@ div#content_wrapper {
     // @start PRIMARY NAVIGATION -------------------- //
     
     ul#nav_pri {
+        float:right;
         
 
         li {
@@ -530,3 +521,91 @@ div#content_wrapper {
 }
 
 // @end GLOBAL ELEMENTS & COMPONENTS //
+
+// @start GRIDPAK 
+
+#tabs {
+    display:block;
+    overflow:hidden;
+    background:#353535;
+    font-size:calc-em(11);
+    padding:0 calc-em(24);
+
+    li {
+
+        a {
+            display:inline-block;
+            color:$white;
+            padding:calc-em(10, 11);
+            &:hover,
+            &:focus {
+                background-color:#474747;
+            }
+
+
+        }
+        &.cur {
+            background:$white;
+            color:#353535;
+        }
+        &.cur a {
+            color:#353535;
+        }
+    }
+}
+
+#options {
+    background-color:#fbfbfb;
+    padding:calc-em(20) calc-em(23);
+    overflow:hidden;
+
+    div {
+        float:left;
+    }
+
+    input {
+        width:3em;
+    }
+}
+
+#rule {
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+    height:calc-em(20);
+    background:#e5e5e5 url(/static/images/site/rule.png) no-repeat calc-em(20) 0;
+}
+
+#browser {
+    background:url(/static/images/site/grid.png) repeat 0 0;
+}
+
+#grids {
+    padding:calc-em(20);
+}
+.grid {
+    background:$white;
+    height:20em;
+    border:1px solid $black;
+
+    .col {
+        float:left;
+        height:20em;
+        background:#FDCFD0;
+        @include box_sizing(border-box);
+        border-right:0px solid $white;
+        position:relative;
+
+        .width {
+            font-size:calc-em(10);
+            position:absolute;
+            bottom:-1em;
+            left:0;
+            height:1em;
+            display:block;
+            width:100%;
+            text-align:center;
+        }
+    }
+}
+
+// @end GRIDPAK

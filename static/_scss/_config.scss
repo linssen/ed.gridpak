@@ -32,13 +32,9 @@
 
     // @start FONT SIZES -------------------- //
 
-    $basefont:14;
-    $baseh1:26;
-    $baseh2:20;
-    $baseh3:17;
-    $baseh4:14;
-    // $baseh5:;
-    // $baseh6:;
+    $basefont:13;
+    $baseh1:20;
+    $baseh2:14;
 
     // @end FONT SIZES //
 
@@ -53,7 +49,7 @@
 
     // @start COLOURS -------------------- //
 
-    $branding:#AC0000;
+    $branding:#D43033;
 
     $black:#000;
     $white:#FFF;
@@ -62,6 +58,8 @@
     $blue2:#427097; // Default link hover
 
     $pink1:#D71379; // Error
+
+    $grey1:#CCC;
 
     // @end COLOURS //
 
@@ -141,6 +139,39 @@
     }
 
     // @end INLINE BLOCK //
+
+
+
+    // @start SHADOW -------------------- //
+
+    // Thanks to https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_box-shadow.scss
+    @mixin prefixer ($property, $value,
+        $webkit: true,
+        $moz: true,
+        $ms: false,
+        $o: false,
+        $spec: true) {
+        @if $webkit { -webkit-#{$property}: $value; }
+        @if $moz    {    -moz-#{$property}: $value; }
+        @if $ms     {     -ms-#{$property}: $value; }
+        @if $o      {      -o-#{$property}: $value; }
+        @if $spec   {         #{$property}: $value; }
+    }
+    @mixin box-shadow ($shadow-1,
+        $shadow-2: false, $shadow-3: false,
+        $shadow-4: false, $shadow-5: false,
+        $shadow-6: false, $shadow-7: false,
+        $shadow-8: false, $shadow-9: false)
+    {
+        $full: compact($shadow-1, $shadow-2, $shadow-3, $shadow-4,
+        $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9);
+
+        @include prefixer(box-shadow, $full, webkit, not moz);
+    }
+
+    // @end SHADOW
+
+
 
     // @start LINEAR GRADIENT -------------------- //
 

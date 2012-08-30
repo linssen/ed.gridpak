@@ -60,25 +60,17 @@
             <div id="content_wrapper">
                 {% block content_wrapper %}
 
-                <div class="content_pri">
-
-                    
-
-                </div> <!-- // .content_pri -->
-
-                <div class="content_sec">
-
-                    
-
-                </div> <!-- // .content_sec -->
-
                 {% endblock %}
             </div> <!-- // #content_wrapper -->
 
             <div id="footer" role="contentinfo">
 
-                <p class="copyright">&copy; {{ date|date:"Y" }} Site name</p>
-                <p class="credit">Site by <a href="http://erskinedesign.com/">Erskine Design</a></p>
+                <form id="download_form" method="post" action="{% url grids_download %}">
+                    <input id="stringified" name="grids" type="hidden">
+                    <button id ="download" type="submit">Download your Gridpak</button>
+                </form>
+
+                <p class="credit">A project by <a href="http://erskinedesign.com/">Erskine Design</a></p>
 
             </div> <!-- // #footer -->
 
@@ -88,8 +80,9 @@
         {% compress js %}
         <script src="{{ STATIC_URL }}js/jquery-1.8.js"></script>
         <script src="{{ STATIC_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script src="{{ STATIC_URL }}js/underscore.js"></script>
+        <script src="{{ STATIC_URL }}js/backbone.js"></script>
         <script src="{{ STATIC_URL }}js/EDJ.js"></script>
-        <script src="{{ STATIC_URL }}js/jquery.fitvids.js"></script>
 
         <script type="text/javascript">
         $(document).ready(function() {
