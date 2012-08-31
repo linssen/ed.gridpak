@@ -584,7 +584,18 @@ div#content_wrapper {
     position:relative;
     width:960px;
 
-    #handle {
+    .ui-resizable-e {
+        width:1em;
+        height:100%;
+        position:absolute;
+        top:0;
+        right:0;
+        background:red;
+        display:block;
+        cursor:col-resize;
+    }
+
+    .handle {
         display:block;
         z-index:99;
         position:absolute;

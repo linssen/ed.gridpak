@@ -380,7 +380,7 @@ $(function() {
             this.input = this.$('#grid_options');
 
             this.$browser = $('#browser').resizable({
-                handles: { e: $("#handle") },
+                handles: 'e',
                 grid: this.snap,
                 minWidth: 200,
                 resize: function(e, ui) {
