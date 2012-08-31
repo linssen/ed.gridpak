@@ -31,12 +31,29 @@ jQuery ->
 
         initialize: ->
             @model.bind 'change', @render
-            @model.bind 'remove', @unrender
+            @model.bind 'destroy', @unrender
             @model.bind 'error', @errorHandler
 
         render: =>
             $(@el).html(@template(@model.toJSON()))
+
+        unrender: =>
+            $(@el).remove()
         
+    class GridTabView extends Backbone.View
+        ###
+        Tabs
+        ###
+        tagName: 'li'
+        template: _.template($('#grid_tab_template').html())
+
+        initialize: ->
+            @model.bind 'change', @render
+            @model.bind 'remove', @unrender
+
+        render: =>
+            $(@el).html(@template(@model.toJSON()))
+
         unrender: =>
             $(@el).remove()
 
@@ -72,6 +89,8 @@ jQuery ->
         
         appendGrid: (grid) =>
             gridView = new GridView model: grid
+            gridTabView = new GridTabView model: grid
             $('#grid_list').append gridView.render()
+            $('#tabs').append gridTabView.render()
 
     gridpak = new AppView
