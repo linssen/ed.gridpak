@@ -524,6 +524,11 @@ div#content_wrapper {
 
 // @start GRIDPAK 
 
+#gridpak {
+    background:url(/static/images/site/grid.png) repeat 0 0;
+    position:relative;
+}
+
 #tabs {
     display:block;
     overflow:hidden;
@@ -576,11 +581,26 @@ div#content_wrapper {
 }
 
 #browser {
-    background:url(/static/images/site/grid.png) repeat 0 0;
+    position:relative;
+    width:960px;
+
+    #handle {
+        display:block;
+        z-index:99;
+        position:absolute;
+        cursor:col-resize;
+        top:calc-em(20) * -1;
+        right:-5px;
+        margin-top:-24px;
+        background:url(/static/images/site/icons/handle.png) no-repeat 0 0;
+        width:11px;
+        height:20px;
+    }
 }
 
 #grids {
-    padding:calc-em(20);
+    margin-left:calc-em(20);
+    margin-top:calc-em(20);
 }
 .grid {
     background:$white;

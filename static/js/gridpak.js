@@ -242,7 +242,7 @@ $(function() {
 
         tagName: 'li',
 
-        template: _.template($('#grid_template').html()),
+        //template: _.template($('#grid_template').html()),
 
         /**
          * Constructor
@@ -270,7 +270,7 @@ $(function() {
             };
             // Extras gives us an opportunity to add extra params to the model just before we render it
             _.extend(this.model.attributes, extras);
-            $(this.el).html(this.template(this.model.toJSON()));
+            //$(this.el).html(this.template(this.model.toJSON()));
             this.stringify();
             return this;
         },
@@ -380,7 +380,7 @@ $(function() {
             this.input = this.$('#grid_options');
 
             this.$browser = $('#browser').resizable({
-                handles: { e: $(".dragme") },
+                handles: { e: $("#handle") },
                 grid: this.snap,
                 minWidth: 200,
                 resize: function(e, ui) {
