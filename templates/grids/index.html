@@ -7,7 +7,7 @@
 <div id="gridpak">
 
     <ul class="horizontal" id="tabs">
-        <li class="cur"><a class="open" href="#">0 - 760px</a><a class="close" href="#">x</a></li>
+        <li class="cur"><a class="open" href="#">0 - 760px</a><a class="delete" href="#">x</a></li>
         <li><a class="open" href="#">0 - 760px</a><a class="close" href="#">x</a></li>
     </ul> <!-- // #tabs -->
 
@@ -42,21 +42,39 @@
 
         <div class="handle"></div>
 
-        <div id="grids">
+        <ul id="grid_list">
 
-            <div class="grid">
-                <div class="col" style="width:16.666666667%; padding:7px; border-right-width:7px;"><span class="width">13%</span></div>
-                <div class="col" style="width:16.666666667%; padding:7px; border-right-width:7px;"><span class="width">13%</span></div>
-                <div class="col" style="width:16.666666667%; padding:7px; border-right-width:7px;"><span class="width">13%</span></div>
-                <div class="col" style="width:16.666666667%; padding:7px; border-right-width:7px;"><span class="width">13%</span></div>
-                <div class="col" style="width:16.666666667%; padding:7px; border-right-width:7px;"><span class="width">13%</span></div>
-                <div class="col" style="width:16.666666667%; padding:7px;"><span class="width">13%</span></div>
-            </div>
-
-        </div> <!-- // #grids -->
+        </ul> <!-- // #grids -->
 
     </div> <!-- // #browser -->
 
 </div> <!-- // #gridpak -->
+
+<script type="text/template" id="grid_template">
+    <div class="grid<%= (current) ? ' cur' : '' %>">
+        <% var i=0; for(i; i<col_num; i++) { %>
+            <div class="col" style="width:<%= col_width %>%; border-left-width:<%= (gutter_type == 'px') ? gutter_width : 0 %>px; margin-left:<%= (gutter_type == '%' && i > 0) ? gutter_width : 0 %>%; padding:0 <%= padding_width + padding_type %>;">
+                <span class="width"><%= col_width %></span>
+            </div><!-- // .col -->
+        <% } %>
+    </div><!-- // .cols -->
+</div>
+</script>
+
+<script type="text/javascript">
+    var theGrids = [
+        {
+            min_width: 0, 
+            col_num: 6, 
+            col_width: 16.666666667,
+            padding_width: 1.5, 
+            padding_type: '%', 
+            gutter_width: 2,  
+            gutter_type: '%', 
+            baseline_height: 22,
+            current: true
+        }
+    ]
+</script>
 
 {% endblock %}

@@ -609,9 +609,10 @@ div#content_wrapper {
     }
 }
 
-#grids {
+#grid_list {
     margin-left:calc-em(20);
     margin-top:calc-em(20);
+    height:20em;
 }
 .grid {
     background:$white;
