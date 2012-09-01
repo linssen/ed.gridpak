@@ -28,7 +28,7 @@ jQuery ->
 
             # Check integers
             if (attrs.minWidth? and not @isInt attrs.minWidth) or
-                (attrs.maxWidth? and not @isInt attrs.maxWidth) or
+                (attrs.maxWidth? and attrs.maxWidth isnt false and not @isInt attrs.maxWidth) or
                 (attrs.colNum? and not @isInt attrs.colNum) or
                 (attrs.paddingWidth? and not @isNum attrs.paddingWidth) or
                 (attrs.gutterWidth? and not @isNum attrs.gutterWidth)
@@ -160,9 +160,14 @@ jQuery ->
             @model.destroy()
 
         open: (e) ->
-            # TODO: can't select the last tab?
+            ###
+            Switch the current tab to the one we've clicked on, unless of
+            course that's already the current tab
+            ###
             e.preventDefault()
             current = @model.collection.getCurrent()
+            if current.cid is @model.cid
+                return false
             current.set "current", false
             @model.set "current", true
 
