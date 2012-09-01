@@ -60,8 +60,15 @@ jQuery ->
         remove: ->
             @model.destroy()
 
+        open: (e) ->
+            e.preventDefault()
+            current = @model.collection.getCurrent()
+            current.set 'current', false
+            @model.set 'current', true
+
         events:
             'click .delete': 'remove'
+            'click .open': 'open'
 
     class AppView extends Backbone.View
         el: $ '#gridpak'
