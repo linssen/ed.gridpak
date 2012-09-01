@@ -20,6 +20,9 @@ jQuery ->
             console.log "will set limits for #{@cid}"
 
         setColWidth: =>
+            ###
+            Calculates the column widths based on the grid's options
+            ###
             gutterType = @get 'gutterType'
             gutterWidth = @get 'gutterWidth'
             colNum = @get 'colNum'
