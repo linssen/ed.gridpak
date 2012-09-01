@@ -95,6 +95,7 @@ jQuery ->
 
     class GridList extends Backbone.Collection
         model: Grid
+        # TODO: bind change, add and destroy to the stringify method
 
         comparator: (grid) ->
             ###
@@ -184,7 +185,7 @@ jQuery ->
         $browser: {}
         snap: 20
 
-        initialize: ->
+        initialize: =>
             @collection = new GridList(theGrids)
             @collection.bind "add", @appendGrid
             @collection.bind "change", @refreshOptions
@@ -221,7 +222,7 @@ jQuery ->
 
             grid.set gridOptions
 
-        refreshOptions: () =>
+        refreshOptions: =>
             ###
             Fetches the options from the current grid and sets them to the form.
             ###
