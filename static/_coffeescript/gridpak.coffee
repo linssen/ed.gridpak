@@ -79,6 +79,7 @@ jQuery ->
         initialize: ->
             @collection = new GridList(theGrids)
             @collection.bind 'add', @appendGrid
+            @collection.bind 'change', @refreshOptions
             @collection.each(@appendGrid)
 
             @browser = $('#browser').resizable
@@ -91,6 +92,16 @@ jQuery ->
 
         resize: (e, ui) ->
             # resizer stuff
+        
+        refreshOptions: (e) =>
+            grid = @collection.getCurrent()
+
+            # Because we unset current before we set the new one it will
+            # momentarily be undefined
+            if not grid?
+                return false
+
+            console.log "will update options from #{grid.cid}"
         
         appendGrid: (grid) =>
             gridView = new GridView model: grid
