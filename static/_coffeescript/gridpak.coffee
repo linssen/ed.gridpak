@@ -209,7 +209,7 @@ jQuery ->
 
             grid.set gridOptions
 
-        refreshOptions: (e) =>
+        refreshOptions: () =>
             ###
             Fetches the options from the current grid and sets them to the form.
             ###
