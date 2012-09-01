@@ -162,6 +162,7 @@ jQuery ->
             
         events:
             "change #options input, #options select": 'updateGrid'
+            "change #options select": 'typeSwitch'
 
         resize: (e, ui) ->
             # resizer stuff
@@ -203,5 +204,25 @@ jQuery ->
             gridTabView = new GridTabView model: grid
             $('#grid_list').append gridView.render()
             $('#tabs').append gridTabView.render()
+
+        typeSwitch: (e) =>
+            ###
+            Deals with the change between px and % for gutter and padding types 
+            ###
+            grid = @collection.getCurrent()
+
+            $select = $(e.target)
+            $input = $select.prev("input")
+            oldWidth = $input.val()
+
+            # If we've switched from % to px
+            if $select.val() == "px"
+                newWidth = parseInt(@browser.width() * (oldWidth / 100))
+            else
+                newWidth = (oldWidth / @browser.width()) * 100
+
+            grid.set $input.data("gridAttr"), newWidth
+
+            @refreshOptions
 
     gridpak = new AppView
