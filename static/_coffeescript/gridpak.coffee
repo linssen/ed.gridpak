@@ -98,6 +98,19 @@ jQuery ->
             ###
             $('#stringified').val JSON.stringify this
 
+        dump: =>
+            ###
+            Converts the GridList collection to a readable string and dumps it
+            in the console log, useful for debugging
+            ###
+            @each (grid) =>
+                message += "#{grid.cid}: #{grid.get "minWidth"} - #{grid.get "maxWidth"}\t\t
+                    padding: #{grid.get "paddingWidth"}#{grid.get "paddingType"} |
+                    gutter: #{grid.get "gutterWidth"}#{grid.get "gutterType"} |
+                    baseline: #{grid.get "baselineHeight"}\n"
+
+            console.log message
+
     class GridView extends Backbone.View
         tagName: 'li'
         template: _.template $('#grid_template').html()
