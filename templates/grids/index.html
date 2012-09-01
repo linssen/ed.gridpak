@@ -49,9 +49,9 @@
 
 <script type="text/template" id="grid_template">
     <div class="grid<%= (current) ? ' cur' : '' %>">
-        <% var i=0; for(i; i<col_num; i++) { %>
-            <div class="col" style="width:<%= col_width %>%; border-left-width:<%= (gutter_type == 'px') ? gutter_width : 0 %>px; margin-left:<%= (gutter_type == '%' && i > 0) ? gutter_width : 0 %>%; padding:0 <%= padding_width + padding_type %>;">
-                <span class="width"><%= col_width %></span>
+        <% var i=0; for(i; i<colNum; i++) { %>
+            <div class="col" style="width:<%= colWidth %>%; border-left-width:<%= (gutterType == 'px') ? gutterWidth : 0 %>px; margin-left:<%= (gutterType == '%' && i > 0) ? gutterWidth : 0 %>%; padding:0 <%= paddingWidth + paddingType %>;">
+                <span class="width"><%= colWidth %></span>
             </div><!-- // .col -->
         <% } %>
     </div><!-- // .cols -->
@@ -68,25 +68,25 @@
 <script type="text/javascript">
     var theGrids = [
         {
-            min_width: 0, 
-            col_num: 6, 
-            col_width: 16.666666667,
-            padding_width: 1.5, 
-            padding_type: '%', 
-            gutter_width: 2,  
-            gutter_type: '%', 
-            baseline_height: 22,
+            minWidth: 0, 
+            colNum: 6, 
+            colWidth: 16.666666667,
+            paddingWidth: 1.5, 
+            paddingType: '%', 
+            gutterWidth: 2,  
+            gutterType: '%', 
+            baselineHeight: 22,
             current: true
         },
         {
-            min_width: 0, 
-            col_num: 10, 
-            col_width: 10,
-            padding_width: 0, 
-            padding_type: '%', 
-            gutter_width: 10,  
-            gutter_type: 'px', 
-            baseline_height: 22,
+            minWidth: 0, 
+            colNum: 10, 
+            colWidth: 10,
+            paddingWidth: 0, 
+            paddingType: '%', 
+            gutterWidth: 10,  
+            gutterType: 'px', 
+            baselineHeight: 22,
             current: false
         }
     ]

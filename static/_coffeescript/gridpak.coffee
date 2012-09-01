@@ -2,16 +2,17 @@ jQuery ->
     
     class Grid extends Backbone.Model
         defaults:
-            min_width: 0
-            col_num: 6
-            padding_width: 1.5
-            padding_type: '%'
-            gutter_width: 2
-            gutter_type: '%'
+            minWidth: 0
+            colNum: 6
+            paddingWidth: 1.5
+            paddingType: '%'
+            gutterWidth: 2
+            gutterType: '%'
             baseline_height: 22
 
         initialize: ->
             @bind 'change:min_width', @setLimits
+            @bind "change:minWidth", @setLimits
 
         setLimits: =>
             console.log "will set limits for #{@cid}"
@@ -110,11 +111,11 @@ jQuery ->
             grid = @collection.getCurrent()
 
             gridOptions =
-                col_num: parseInt $("#id_col_num").val()
-                gutter_width: parseInt $("#id_gutter_width").val()
-                gutter_type: $("#id_gutter_type").val()
-                padding_width: parseInt $("#id_padding_width").val()
-                padding_type: $("#id_padding_type").val()
+                colNum: parseInt $("#id_col_num").val()
+                gutterWidth: parseInt $("#id_gutter_width").val()
+                gutterType: $("#id_gutter_type").val()
+                paddingWidth: parseInt $("#id_padding_width").val()
+                paddingType: $("#id_padding_type").val()
 
             grid.set gridOptions
 
@@ -129,11 +130,11 @@ jQuery ->
             if not grid?
                 return false
 
-            $("#id_col_num").val grid.get('col_num')
-            $("#id_gutter_width").val grid.get('gutter_width')
-            $("#id_gutter_type").val grid.get('gutter_type')
-            $("#id_padding_width").val grid.get('padding_width')
-            $("#id_padding_type").val grid.get('padding_type')
+            $("#id_col_num").val grid.get('colNum')
+            $("#id_gutter_width").val grid.get('gutterWidth')
+            $("#id_gutter_type").val grid.get('gutterType')
+            $("#id_padding_width").val grid.get('paddingWidth')
+            $("#id_padding_type").val grid.get('paddingType')
         
         appendGrid: (grid) =>
             gridView = new GridView model: grid
