@@ -618,6 +618,11 @@ div#content_wrapper {
     background:$white;
     height:20em;
     border:1px solid $black;
+    display:none;
+
+    &.cur {
+        display:block;
+    }
 
     .col {
         float:left;

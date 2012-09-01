@@ -1,9 +1,6 @@
 jQuery ->
     
     class Grid extends Backbone.Model
-        ###
-        The Grid model
-        ###
         defaults:
             min_width: 0
             col_num: 6
@@ -14,18 +11,16 @@ jQuery ->
             baseline_height: 22
 
     class GridList extends Backbone.Collection
-        ###
-        The grids collection
-        ###
         model: Grid
 
         stringify: =>
-            $('#stringified').val(JSON.stringify(this))
+            ###
+            Converts the GridList collection into a JSON string and stores the
+            contents in the #stringified input in the download form.
+            ###
+            $('#stringified').val JSON.stringify this
 
     class GridView extends Backbone.View
-        ###
-        The grid view
-        ###
         tagName: 'li'
         template: _.template($('#grid_template').html())
 
@@ -41,9 +36,6 @@ jQuery ->
             $(@el).remove()
         
     class GridTabView extends Backbone.View
-        ###
-        Tabs
-        ###
         tagName: 'li'
         template: _.template($('#grid_tab_template').html())
 
@@ -64,9 +56,6 @@ jQuery ->
             'click .delete': 'remove'
 
     class AppView extends Backbone.View
-        ###
-        Application view
-        ###
         el: $ '#gridpak'
         $browser: {}
         snap: 20

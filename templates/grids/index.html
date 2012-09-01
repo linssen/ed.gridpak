@@ -6,7 +6,9 @@
 
 <div id="gridpak">
 
-    <ul class="horizontal" id="tabs"></ul> <!-- // #tabs -->
+    <ul class="horizontal" id="tabs">
+        <li><a href="#" class="create">Create</a></li>
+    </ul> <!-- // #tabs -->
 
     <div id="options">
 
@@ -39,9 +41,7 @@
 
         <div class="handle"></div>
 
-        <ul id="grid_list">
-
-        </ul> <!-- // #grids -->
+        <ul id="grid_list"></ul> <!-- // #grids -->
 
     </div> <!-- // #browser -->
 
@@ -60,7 +60,7 @@
 
 <script type="text/template" id="grid_tab_template">
     <li>
-        <a href="#">HELLO</a>
+        <a href="#" class="open">HELLO</a>
         <a href="#" class="delete">x</a>
     </li>
 </script>
@@ -77,6 +77,17 @@
             gutter_type: '%', 
             baseline_height: 22,
             current: true
+        },
+        {
+            min_width: 0, 
+            col_num: 10, 
+            col_width: 10,
+            padding_width: 0, 
+            padding_type: '%', 
+            gutter_width: 10,  
+            gutter_type: 'px', 
+            baseline_height: 22,
+            current: false
         }
     ]
 </script>
