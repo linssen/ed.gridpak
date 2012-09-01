@@ -48,7 +48,7 @@
 </div> <!-- // #gridpak -->
 
 <script type="text/template" id="grid_template">
-    <div class="grid<%= (current) ? ' cur' : '' %>">
+    <div class="grid<%= (current) ? ' cur' : '' %>" style="<%= (gutterType == 'px') ? 'margin-left:-' + gutterWidth + gutterType : '' %>;">
         <% var i=0; for(i; i<colNum; i++) { %>
             <div class="col" style="width:<%= colWidth %>%; border-left-width:<%= (gutterType == 'px') ? gutterWidth : 0 %>px; margin-left:<%= (gutterType == '%' && i > 0) ? gutterWidth : 0 %>%; padding:0 <%= paddingWidth + paddingType %>;">
                 <span class="width"><%= colWidth %></span>

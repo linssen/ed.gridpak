@@ -629,7 +629,8 @@ div#content_wrapper {
         height:20em;
         background:#FDCFD0;
         @include box_sizing(border-box);
-        border-right:0px solid $white;
+        @include prefixer (background-clip, padding-box);
+        border-left:0px solid rgba(255,255,255,0);
         position:relative;
 
         .width {
