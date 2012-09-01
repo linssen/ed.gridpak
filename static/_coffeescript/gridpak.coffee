@@ -186,12 +186,12 @@ jQuery ->
 
         initialize: ->
             @collection = new GridList(theGrids)
-            @collection.bind 'add', @appendGrid
-            @collection.bind 'change', @refreshOptions
+            @collection.bind "add", @appendGrid
+            @collection.bind "change", @refreshOptions
             @collection.each(@appendGrid)
 
-            @$browser = $('#browser').resizable
-                handles: 'e'
+            @$browser = $("#browser").resizable
+                handles: "e"
                 grid: @snap
                 minWidth: 200
                 resize: (e, ui) =>
@@ -206,7 +206,7 @@ jQuery ->
         resize: (e, ui) ->
             # resizer stuff
         
-        updateGrid: () =>
+        updateGrid: =>
             ###
             Fetches the options from the form and sets them to the current grid.
             ###
