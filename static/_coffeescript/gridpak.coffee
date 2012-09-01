@@ -88,6 +88,8 @@ jQuery ->
                 minWidth: 200
                 resize: (e, ui) =>
                     @resize(e, ui)
+
+            @refreshOptions()
             
 
         resize: (e, ui) ->
