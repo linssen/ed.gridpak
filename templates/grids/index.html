@@ -52,7 +52,7 @@
         <% var i=0; for(i; i<colNum; i++) { %>
             <div class="col" style="width:<%= colWidth %>%; border-left-width:<%= (gutterType == 'px') ? gutterWidth : 0 %>px; margin-left:<%= (gutterType == '%' && i > 0) ? gutterWidth : 0 %>%; padding:0 <%= paddingWidth + paddingType %>;">
                 <div class="visible"></div>
-                <span class="width"><%= colWidth %></span>
+                <span class="width"><%= Math.round(colWidth * 100)/100  %></span>
             </div><!-- // .col -->
         <% } %>
     </div><!-- // .cols -->
