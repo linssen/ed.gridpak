@@ -39,8 +39,6 @@
 
     <div id="browser">
 
-        <div class="handle"></div>
-
         <ul id="grid_list"></ul> <!-- // #grids -->
 
     </div> <!-- // #browser -->
@@ -48,6 +46,8 @@
 </div> <!-- // #gridpak -->
 
 <script type="text/template" id="grid_template">
+    <div class="handle" style="left:<%= minWidth %>px"></div>
+
     <div class="grid<%= (current) ? ' cur' : '' %>" style="<%= (gutterType == 'px') ? 'margin-left:-' + gutterWidth + gutterType : '' %>;">
         <% var i=0; for(i; i<colNum; i++) { %>
             <div class="col" style="width:<%= colWidth %>%; border-left-width:<%= (gutterType == 'px') ? gutterWidth : 0 %>px; margin-left:<%= (gutterType == '%' && i > 0) ? gutterWidth : 0 %>%; padding:0 <%= paddingWidth + paddingType %>;">
@@ -61,7 +61,7 @@
 
 <script type="text/template" id="grid_tab_template">
     <li class="<%= (current) ? 'cur' : '' %>">
-        <a href="#" class="open">HELLO</a>
+        <a href="#" class="open"><%= minWidth %> - <%= (maxWidth) ? maxWidth : '∞' %></a>
         <a href="#" class="delete">x</a>
     </li>
 </script>
@@ -72,7 +72,6 @@
         {
             minWidth: 0, 
             colNum: 2, 
-            colWidth: 16.666666667,
             paddingWidth: 1.5, 
             paddingType: '%', 
             gutterWidth: 2,  
@@ -83,9 +82,8 @@
         {
             minWidth: 320, 
             colNum: 4, 
-            colWidth: 10,
-            paddingWidth: 0, 
-            paddingType: '%', 
+            paddingWidth: 10, 
+            paddingType: 'px', 
             gutterWidth: 10,  
             gutterType: 'px', 
             baselineHeight: 22,
@@ -94,11 +92,10 @@
         {
             minWidth: 700, 
             colNum: 10, 
-            colWidth: 10,
-            paddingWidth: 5, 
+            paddingWidth: 1, 
             paddingType: '%', 
-            gutterWidth: 20,  
-            gutterType: 'px', 
+            gutterWidth: 1.2,  
+            gutterType: '%', 
             baselineHeight: 22,
             current: false
         }

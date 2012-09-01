@@ -90,7 +90,7 @@ jQuery ->
     class GridList extends Backbone.Collection
         model: Grid
 
-        comparator: (grid) =>
+        comparator: (grid) ->
             ###
             Used to order the grids ascending by their minWidth.
             ###
