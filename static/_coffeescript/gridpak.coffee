@@ -219,10 +219,18 @@ jQuery ->
             # If we've switched from % to px
             if $select.val() == "px"
                 newWidth = parseInt(@browser.width() * (oldWidth / 100))
+                step = 1
             else
                 newWidth = (oldWidth / @browser.width()) * 100
+                step = 0.1
 
+            # HTML data attributes are camel cased to jQuery attrs, and we'll
+            # use them to set the correct grid attribute
             grid.set $input.data("gridAttr"), newWidth
+
+            # Set the number input increments to something more useful
+            # (percentages are float, and px are integers)
+            $input.attr "step", step
 
             @refreshOptions
 
