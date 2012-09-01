@@ -585,12 +585,13 @@ div#content_wrapper {
     width:960px;
 
     .ui-resizable-e {
-        width:1em;
+        width:12px;
         height:100%;
+        padding:1px 0;
         position:absolute;
         top:0;
         right:0;
-        background:red;
+        background:rgba(0,0,0,0.3);
         display:block;
         cursor:col-resize;
     }
