@@ -18,6 +18,7 @@ jQuery ->
             @bind "change:minWidth", @setLimits
             @bind "change:colNum change:paddingWidth change:paddingType
                 change:gutterWidth change:gutterType", @setColWidth
+            @bind "error", @errorHandler
 
         validate: (attrs) =>
             settings =
@@ -76,6 +77,9 @@ jQuery ->
             newIndex = if index < maxIndex then index + 1 else index - 1
             grid = @collection.at newIndex
             grid.set "current", true
+
+        errorHandler: =>
+            console.log arguments
 
         isInt: (num) ->
             ###
