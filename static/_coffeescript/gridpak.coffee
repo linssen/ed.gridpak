@@ -3,7 +3,7 @@ jQuery ->
     class Grid extends Backbone.Model
         defaults:
             minWidth: 0
-            maxWidth: 960
+            maxWidth: false
             colNum: 6
             paddingWidth: 1.5
             paddingType: '%'
@@ -44,12 +44,13 @@ jQuery ->
                     return "Must be a positive number" 
 
         setLimits: =>
+            ###
+            Calculates the grids maxWidth from the next grids minWidth. Relies
+            on the collection being intact.
+            ###
             nextGrid = @collection.at @collection.indexOf(this) + 1
-            if nextGrid?
-                this.set "maxWidth", nextGrid.get "minWidth" - 1
-            else
-                this.set "maxWidth", false
-
+            maxWidth = if nextGrid? then (nextGrid.get "minWidth") - 1 else false
+            @set "maxWidth", maxWidth
 
         setColWidth: =>
             ###
