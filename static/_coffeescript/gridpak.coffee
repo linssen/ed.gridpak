@@ -10,6 +10,12 @@ jQuery ->
             gutter_type: '%'
             baseline_height: 22
 
+        initialize: ->
+            @bind 'change:min_width', @setLimits
+
+        setLimits: =>
+            console.log "will set limits for #{@cid}"
+
     class GridList extends Backbone.Collection
         model: Grid
 
