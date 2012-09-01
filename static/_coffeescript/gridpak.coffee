@@ -5,11 +5,13 @@ jQuery ->
             minWidth: 0
             maxWidth: false
             colNum: 6
+            colWidth: 16.666666667
             paddingWidth: 1.5
             paddingType: '%'
             gutterWidth: 2
             gutterType: '%'
             baselineHeight: 22
+            current: false
 
         initialize: ->
             @bind "destroy", @resetCurrent
