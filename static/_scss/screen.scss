@@ -537,6 +537,9 @@ div#content_wrapper {
     padding:0 calc-em(24);
 
     li {
+        &:hover {
+            background-color:#474747;
+        }
 
         a {
             display:inline-block;
@@ -555,6 +558,15 @@ div#content_wrapper {
         }
         &.cur a {
             color:#353535;
+
+            &.open {
+                cursor:default;
+            } 
+
+            &:hover,
+            &:focus {
+                background-color:$white;
+            }
         }
     }
 }
