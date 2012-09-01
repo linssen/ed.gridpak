@@ -54,7 +54,7 @@ jQuery ->
 
         setColWidth: =>
             ###
-            Calculates the column widths based on the grid's options
+            Calculates the column widths based on the grid's options.
             ###
             gutterType = @get 'gutterType'
             gutterWidth = @get 'gutterWidth'
@@ -66,7 +66,7 @@ jQuery ->
         resetCurrent: =>
             ###
             If we delete the 'current' model, then we'll need to replace it
-            with it's nearest neighbour (preference on next, not prev)
+            with it's nearest neighbour (preference on next, not prev).
             ###
             if not @get "current"
                 return false
@@ -79,13 +79,13 @@ jQuery ->
 
         isInt: (num) ->
             ###
-            Determines whether the var is a number
+            Determines whether the var is a number.
             ###
             return typeof num == "number" and num % 1 == 0
 
         isNum: (num) ->
             ###
-            Determines whether the var is a float
+            Determines whether the var is a float.
             ###
             return (not isNaN parseFloat num) and isFinite num
 
@@ -94,7 +94,7 @@ jQuery ->
 
         comparator: (grid) =>
             ###
-            Used to order the grids ascending by their minWidth
+            Used to order the grids ascending by their minWidth.
             ###
             return grid.get "minWidth"
 
@@ -116,7 +116,7 @@ jQuery ->
         dump: =>
             ###
             Converts the GridList collection to a readable string and dumps it
-            in the console log, useful for debugging
+            in the console log, useful for debugging.
             ###
             message = ""
             @each (grid) =>
@@ -198,7 +198,7 @@ jQuery ->
         
         updateGrid: () =>
             ###
-            Fetches the options from the form and sets them to the current grid
+            Fetches the options from the form and sets them to the current grid.
             ###
             grid = @collection.getCurrent()
 
@@ -213,12 +213,12 @@ jQuery ->
 
         refreshOptions: (e) =>
             ###
-            Fetches the options from the current grid and sets them to the form
+            Fetches the options from the current grid and sets them to the form.
             ###
             grid = @collection.getCurrent()
 
             # Because we unset current before we set the new one it will
-            # momentarily be undefined
+            # momentarily be undefined.
             if not grid?
                 return false
 
@@ -237,7 +237,7 @@ jQuery ->
 
         typeSwitch: (e) =>
             ###
-            Deals with the change between px and % for gutter and padding types 
+            Deals with the change between px and % for gutter and padding types .
             ###
             grid = @collection.getCurrent()
 
