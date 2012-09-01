@@ -119,6 +119,9 @@ jQuery ->
             grid.set gridOptions
 
         refreshOptions: (e) =>
+            ###
+            Fetches the options from the current grid and sets them to the form
+            ###
             grid = @collection.getCurrent()
 
             # Because we unset current before we set the new one it will
