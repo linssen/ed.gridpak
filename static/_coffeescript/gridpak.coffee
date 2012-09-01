@@ -13,6 +13,14 @@ jQuery ->
     class GridList extends Backbone.Collection
         model: Grid
 
+        getCurrent: =>
+            ###
+            Returns the grid in the collection that is currently being edited.
+            Uses Underscore.js's _.find method.
+            ###
+            return @find (grid) ->
+                grid.get('current') == true
+
         stringify: =>
             ###
             Converts the GridList collection into a JSON string and stores the
