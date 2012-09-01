@@ -17,6 +17,8 @@ jQuery ->
             @bind "change:colNum change:paddingWidth change:paddingType
                 change:gutterWidth change:gutterType", @setColWidth
 
+            @setColWidth()
+
         validate: (attrs) =>
             settings =
                 maxCols: 99
