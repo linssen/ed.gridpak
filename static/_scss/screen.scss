@@ -628,11 +628,17 @@ div#content_wrapper {
     .col {
         float:left;
         height:20em;
-        background:#FDCFD0;
+        background:#E78484;
         @include box_sizing(border-box);
         @include prefixer (background-clip, padding-box);
         border-left:0px solid rgba(255,255,255,0);
         position:relative;
+
+        .visible {
+            background-color:rgba(255,255,255,0.5);
+            width:100%;
+            height:100%
+        }
 
         .width {
             font-size:calc-em(10);

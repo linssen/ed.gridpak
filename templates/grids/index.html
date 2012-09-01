@@ -51,6 +51,7 @@
     <div class="grid<%= (current) ? ' cur' : '' %>" style="<%= (gutterType == 'px') ? 'margin-left:-' + gutterWidth + gutterType : '' %>;">
         <% var i=0; for(i; i<colNum; i++) { %>
             <div class="col" style="width:<%= colWidth %>%; border-left-width:<%= (gutterType == 'px') ? gutterWidth : 0 %>px; margin-left:<%= (gutterType == '%' && i > 0) ? gutterWidth : 0 %>%; padding:0 <%= paddingWidth + paddingType %>;">
+                <div class="visible"></div>
                 <span class="width"><%= colWidth %></span>
             </div><!-- // .col -->
         <% } %>
@@ -59,7 +60,7 @@
 </script>
 
 <script type="text/template" id="grid_tab_template">
-    <li>
+    <li class="<%= (current) ? 'cur' : '' %>">
         <a href="#" class="open">HELLO</a>
         <a href="#" class="delete">x</a>
     </li>
@@ -85,6 +86,17 @@
             paddingWidth: 0, 
             paddingType: '%', 
             gutterWidth: 10,  
+            gutterType: 'px', 
+            baselineHeight: 22,
+            current: false
+        },
+        {
+            minWidth: 0, 
+            colNum: 5, 
+            colWidth: 10,
+            paddingWidth: 5, 
+            paddingType: '%', 
+            gutterWidth: 20,  
             gutterType: 'px', 
             baselineHeight: 22,
             current: false

@@ -11,6 +11,7 @@ jQuery ->
             baseline_height: 22
 
         initialize: ->
+            @bind "destroy", @resetCurrent
             @bind "change:minWidth", @setLimits
             @bind "change:colNum change:paddingWidth change:paddingType
                 change:gutterWidth change:gutterType", @setColWidth
@@ -25,6 +26,20 @@ jQuery ->
 
             gutterRemove = if gutterType == "%" then gutterWidth * (colNum - 1) else 0
             @set 'colWidth', (100 - gutterRemove) / colNum
+
+        resetCurrent: =>
+            ###
+            If we delete the 'current' model, then we'll need to replace it
+            with it's nearest neighbour (preference on next, not prev)
+            ###
+            if not @get "current"
+                return false
+
+            index = @collection.indexOf this
+            maxIndex = @collection.length - 1
+            newIndex = if index < maxIndex then index + 1 else index - 1
+            grid = @collection.at newIndex
+            grid.set "current", true
 
     class GridList extends Backbone.Collection
         model: Grid
