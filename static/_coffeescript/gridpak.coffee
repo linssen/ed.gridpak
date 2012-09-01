@@ -97,10 +97,27 @@ jQuery ->
 
             @refreshOptions()
             
+        events:
+            "change #options input, #options select": 'updateGrid'
 
         resize: (e, ui) ->
             # resizer stuff
         
+        updateGrid: () =>
+            ###
+            Fetches the options from the form and sets them to the current grid
+            ###
+            grid = @collection.getCurrent()
+
+            gridOptions =
+                col_num: parseInt $("#id_col_num").val()
+                gutter_width: parseInt $("#id_gutter_width").val()
+                gutter_type: $("#id_gutter_type").val()
+                padding_width: parseInt $("#id_padding_width").val()
+                padding_type: $("#id_padding_type").val()
+
+            grid.set gridOptions
+
         refreshOptions: (e) =>
             grid = @collection.getCurrent()
 
