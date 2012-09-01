@@ -40,6 +40,7 @@ jQuery ->
                     return "Must be a positive number" 
 
         setLimits: =>
+            # TODO: make this
             console.log "will set limits for #{@cid}"
 
         setColWidth: =>
