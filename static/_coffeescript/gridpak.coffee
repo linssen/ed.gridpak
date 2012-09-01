@@ -30,7 +30,7 @@ jQuery ->
 
     class GridView extends Backbone.View
         tagName: 'li'
-        template: _.template($('#grid_template').html())
+        template: _.template $('#grid_template').html()
 
         initialize: ->
             @model.bind 'change', @render
@@ -38,21 +38,21 @@ jQuery ->
             @model.bind 'error', @errorHandler
 
         render: =>
-            $(@el).html(@template(@model.toJSON()))
+            $(@el).html @template @model.toJSON()
 
         unrender: =>
             $(@el).remove()
         
     class GridTabView extends Backbone.View
         tagName: 'li'
-        template: _.template($('#grid_tab_template').html())
+        template: _.template $('#grid_tab_template').html()
 
         initialize: ->
             @model.bind 'change', @render
             @model.bind 'remove', @unrender
 
         render: =>
-            $(@el).html(@template(@model.toJSON()))
+            $(@el).html @template @model.toJSON()
 
         unrender: =>
             $(@el).remove()
@@ -80,13 +80,13 @@ jQuery ->
             @collection.bind 'add', @appendGrid
             @collection.each(@appendGrid)
 
-            @browser = $('#browser').resizable({
+            @browser = $('#browser').resizable
                 handles: 'e'
                 grid: @snap
                 minWidth: 200
                 resize: (e, ui) =>
                     @resize(e, ui)
-            })
+            
 
         resize: (e, ui) ->
             # resizer stuff
