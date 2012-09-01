@@ -8,7 +8,7 @@ jQuery ->
             paddingType: '%'
             gutterWidth: 2
             gutterType: '%'
-            baseline_height: 22
+            baselineHeight: 22
 
         initialize: ->
             @bind "destroy", @resetCurrent
