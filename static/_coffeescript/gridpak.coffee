@@ -160,10 +160,11 @@ jQuery ->
             @model.destroy()
 
         open: (e) ->
+            # TODO: can't select the last tab?
             e.preventDefault()
             current = @model.collection.getCurrent()
-            current.set 'current', false
-            @model.set 'current', true
+            current.set "current", false
+            @model.set "current", true
 
         events:
             'click .delete': 'remove'
