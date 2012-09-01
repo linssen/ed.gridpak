@@ -121,9 +121,9 @@ jQuery ->
 
             gridOptions =
                 colNum: parseInt $("#id_col_num").val()
-                gutterWidth: parseInt $("#id_gutter_width").val()
+                gutterWidth: parseFloat $("#id_gutter_width").val()
                 gutterType: $("#id_gutter_type").val()
-                paddingWidth: parseInt $("#id_padding_width").val()
+                paddingWidth: parseFloat $("#id_padding_width").val()
                 paddingType: $("#id_padding_type").val()
 
             grid.set gridOptions
