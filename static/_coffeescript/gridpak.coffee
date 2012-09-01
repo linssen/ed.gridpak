@@ -101,7 +101,11 @@ jQuery ->
             if not grid?
                 return false
 
-            console.log "will update options from #{grid.cid}"
+            $("#id_col_num").val grid.get('col_num')
+            $("#id_gutter_width").val grid.get('gutter_width')
+            $("#id_gutter_type").val grid.get('gutter_type')
+            $("#id_padding_width").val grid.get('padding_width')
+            $("#id_padding_type").val grid.get('padding_type')
         
         appendGrid: (grid) =>
             gridView = new GridView model: grid
