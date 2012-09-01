@@ -16,6 +16,29 @@ jQuery ->
             @bind "change:colNum change:paddingWidth change:paddingType
                 change:gutterWidth change:gutterType", @setColWidth
 
+        validate: (attrs) =>
+            settings =
+                maxCols: 99
+                allowedTypes: ["px", "%"]
+                minGridWidth: 100
+                minMinWidth: 220
+
+            # Check integers
+            if (attrs.minWidth? and not @isInt attrs.minWidth) or
+                (attrs.colNum? and not @isInt attrs.colNum) or
+                (attrs.paddingWidth? and not @isNum attrs.paddingWidth) or
+                (attrs.gutterWidth? and not @isNum attrs.gutterWidth)
+                    return "Numbers please"
+
+            # Make sure we don't exceed the col num limit
+            if attrs.colNum > settings.maxCols or attrs.colNum < 1
+                return "There must be between 1 and #{settings.maxCols} columns"
+
+            # Some must be positive
+            if (attrs.paddingWidth? and attrs.paddingWidth < 0) or
+                (attrs.gutterWidth? and attrs.gutterWidth < 0)
+                    return "Must be a positive number" 
+
         setLimits: =>
             console.log "will set limits for #{@cid}"
 
@@ -43,6 +66,18 @@ jQuery ->
             newIndex = if index < maxIndex then index + 1 else index - 1
             grid = @collection.at newIndex
             grid.set "current", true
+
+        isInt: (num) ->
+            ###
+            Determines whether the var is a number
+            ###
+            return typeof num == "number" and num % 1 == 0
+
+        isNum: (num) ->
+            ###
+            Determines whether the var is a float
+            ###
+            return (not isNaN parseFloat num) and isFinite num
 
     class GridList extends Backbone.Collection
         model: Grid
