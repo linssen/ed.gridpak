@@ -57,7 +57,8 @@ jQuery ->
         unrender: =>
             $(@el).remove()
 
-        remove: ->
+        remove: (e) ->
+            e.preventDefault()
             @model.destroy()
 
         open: (e) ->
