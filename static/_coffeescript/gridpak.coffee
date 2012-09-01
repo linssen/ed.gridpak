@@ -222,6 +222,13 @@ jQuery ->
             if not grid?
                 return false
 
+            minWidth = grid.get "minWidth"
+            minMinWidth = 220
+            minWidth = if minWidth > minMinWidth then minWidth else minMinWidth
+            # TODO: figure out with @$browser isn't working here
+            $("#browser").resizable "option", "minWidth", minWidth
+            if $("#browser").width() < minWidth then $("#browser").width(minWidth)
+
             $("#id_col_num").val grid.get('colNum')
             $("#id_gutter_width").val grid.get('gutterWidth')
             $("#id_gutter_type").val grid.get('gutterType')
