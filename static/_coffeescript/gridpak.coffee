@@ -3,6 +3,7 @@ jQuery ->
     class Grid extends Backbone.Model
         defaults:
             minWidth: 0
+            maxWidth: 960
             colNum: 6
             paddingWidth: 1.5
             paddingType: '%'
@@ -25,6 +26,7 @@ jQuery ->
 
             # Check integers
             if (attrs.minWidth? and not @isInt attrs.minWidth) or
+                (attrs.maxWidth? and not @isInt attrs.maxWidth) or
                 (attrs.colNum? and not @isInt attrs.colNum) or
                 (attrs.paddingWidth? and not @isNum attrs.paddingWidth) or
                 (attrs.gutterWidth? and not @isNum attrs.gutterWidth)
@@ -40,8 +42,12 @@ jQuery ->
                     return "Must be a positive number" 
 
         setLimits: =>
-            # TODO: make this
-            console.log "will set limits for #{@cid}"
+            nextGrid = @collection.at @collection.indexOf(this) + 1
+            if nextGrid?
+                this.set "maxWidth", nextGrid.get "minWidth" - 1
+            else
+                this.set "maxWidth", false
+
 
         setColWidth: =>
             ###
@@ -82,6 +88,12 @@ jQuery ->
 
     class GridList extends Backbone.Collection
         model: Grid
+
+        comparator: (grid) =>
+            ###
+            Used to order the grids ascending by their minWidth
+            ###
+            return grid.get "minWidth"
 
         getCurrent: =>
             ###
@@ -214,6 +226,7 @@ jQuery ->
             $("#id_padding_type").val grid.get('paddingType')
         
         appendGrid: (grid) =>
+            grid.setLimits()
             gridView = new GridView model: grid
             gridTabView = new GridTabView model: grid
             $('#grid_list').append gridView.render()
