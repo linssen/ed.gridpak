@@ -178,7 +178,7 @@ jQuery ->
             @collection.bind 'change', @refreshOptions
             @collection.each(@appendGrid)
 
-            @browser = $('#browser').resizable
+            @$browser = $('#browser').resizable
                 handles: 'e'
                 grid: @snap
                 minWidth: 200
@@ -247,10 +247,10 @@ jQuery ->
 
             # If we've switched from % to px
             if $select.val() == "px"
-                newWidth = parseInt(@browser.width() * (oldWidth / 100))
+                newWidth = parseInt(@$browser.width() * (oldWidth / 100))
                 step = 1
             else
-                newWidth = (oldWidth / @browser.width()) * 100
+                newWidth = (oldWidth / @$browser.width()) * 100
                 step = 0.1
 
             # HTML data attributes are camel cased to jQuery attrs, and we'll
