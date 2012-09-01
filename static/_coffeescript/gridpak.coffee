@@ -17,8 +17,6 @@ jQuery ->
             @bind "change:colNum change:paddingWidth change:paddingType
                 change:gutterWidth change:gutterType", @setColWidth
 
-            @setColWidth()
-
         validate: (attrs) =>
             settings =
                 maxCols: 99
@@ -230,6 +228,8 @@ jQuery ->
         
         appendGrid: (grid) =>
             grid.setLimits()
+            grid.setColWidth()
+
             gridView = new GridView model: grid
             gridTabView = new GridTabView model: grid
             $('#grid_list').append gridView.render()
