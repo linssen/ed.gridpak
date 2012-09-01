@@ -11,11 +11,20 @@ jQuery ->
             baseline_height: 22
 
         initialize: ->
-            @bind 'change:min_width', @setLimits
             @bind "change:minWidth", @setLimits
+            @bind "change:colNum change:paddingWidth change:paddingType
+                change:gutterWidth change:gutterType", @setColWidth
 
         setLimits: =>
             console.log "will set limits for #{@cid}"
+
+        setColWidth: =>
+            gutterType = @get 'gutterType'
+            gutterWidth = @get 'gutterWidth'
+            colNum = @get 'colNum'
+
+            gutterRemove = if gutterType == "%" then gutterWidth * (colNum - 1) else 0
+            @set 'colWidth', (100 - gutterRemove) / colNum
 
     class GridList extends Backbone.Collection
         model: Grid
