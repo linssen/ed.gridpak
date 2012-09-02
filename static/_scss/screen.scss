@@ -755,12 +755,14 @@ div#content_wrapper {
     padding:calc-em(20);
     @include prefixer(box-shadow, 5px 5px 0 rgba(0,0,0,0.2));
 
-    .ui-dialog-title {
+    .ui-dialog-titlebar {
         font-size:calc-em(20);
         display:block;
-    }
-    .closethick {
-        display:none;
+        cursor:move;
+
+        .ui-icon-closethick {
+            display:none;
+        }
     }
 }
 

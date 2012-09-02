@@ -231,11 +231,13 @@ jQuery ->
                 breakpointPosition: @$browser.width()
 
             template = _.template $("#grid_new_template").html(), data 
-            console.log template
 
             $(template).dialog
                 modal: true
                 title: "Add new breakpoint"
+                draggable: true
+                buttons:
+                    "Cancel": -> $(this).dialog "close"
         
         updateGrid: =>
             ###
