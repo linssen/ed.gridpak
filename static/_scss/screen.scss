@@ -639,7 +639,7 @@ div#content_wrapper {
 #browser {
     position:relative;
     width:960px;
-    padding-bottom:calc-em(20);
+    padding-bottom:calc-em(30);
     margin-left:calc-em(20);
 
     #browser_handle {
@@ -676,7 +676,7 @@ div#content_wrapper {
 
     .boundary {
         display:block;
-        height:100%;
+        height:$gridheight + calc-em(30);
         position:absolute;
         top:calc-em(-20);
         left:0;
@@ -716,12 +716,19 @@ div#content_wrapper {
         .width {
             font-size:calc-em(10);
             position:absolute;
-            bottom:-1em;
+            bottom:-1.5em;
             left:0;
             height:1em;
             display:block;
             width:100%;
             text-align:center;
+            border-right:1px solid #aaa;
+            border-left:1px solid #aaa;
+
+            .value {
+                position:relative;
+                top:0.3em;
+            }
         }
     }
 }
