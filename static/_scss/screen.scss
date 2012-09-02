@@ -361,12 +361,15 @@ h6 {
 h1 {
     font-size:calc-em($baseh1);
     font-weight:$semibold;
+    margin-right:calc-em(18, $baseh1);
     // line-height:;
     // margin-bottom:calc-em(20, $baseh1);
 }
 
 h2 {
     font-size:calc-em($baseh2);
+    position:relative;
+    top:calc-em(8, $baseh2);
     // line-height:;
     // margin-bottom:calc-em(20, $baseh2);
 }
@@ -591,9 +594,12 @@ div#content_wrapper {
     background-color:#fbfbfb;
     padding:calc-em(20) calc-em(23);
     overflow:hidden;
+    font-size:calc-em(13);
+    color:#666;
 
     div {
         float:left;
+        margin-right:calc-em(25, 13);
     }
 
     input {
