@@ -219,9 +219,23 @@ jQuery ->
         events:
             "change #options input, #options select": 'updateGrid'
             "change #options select": 'typeSwitch'
+            "click #new_grid": "newGrid"
 
         resize: (e, ui) ->
             # resizer stuff
+        
+        newGrid: (e) =>
+            e.preventDefault()
+
+            data =
+                breakpointPosition: @$browser.width()
+
+            template = _.template $("#grid_new_template").html(), data 
+            console.log template
+
+            $(template).dialog
+                modal: true
+                title: "Add new breakpoint"
         
         updateGrid: =>
             ###

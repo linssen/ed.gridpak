@@ -741,4 +741,27 @@ div#content_wrapper {
     }
 }
 
+.ui-widget-overlay {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,0.7);
+}
+.ui-dialog {
+    border:1px solid #bbb;
+    background:$white;
+    padding:calc-em(20);
+    @include prefixer(box-shadow, 5px 5px 0 rgba(0,0,0,0.2));
+
+    .ui-dialog-title {
+        font-size:calc-em(20);
+        display:block;
+    }
+    .closethick {
+        display:none;
+    }
+}
+
 // @end GRIDPAK

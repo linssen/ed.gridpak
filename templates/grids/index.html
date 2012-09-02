@@ -79,6 +79,19 @@
     <a href="#" class="delete" title="Delete this grid">x</a>
 </script>
 
+<script type="text/template" id="grid_new_template">
+    <div class="contents">
+        <div>
+            <label for="id_breakpoint_position">Breakpoint position:</label>
+            <input type="number" id="id_breakpoint_position" value="<%= breakpointPosition %>" min="0" step="1"> 
+        </div>
+        <button type="submit" class="btn btn-primary">OK</button>
+        <a href="#" class="close">Cancel</a>
+        <hr>
+        <p>More info</p>
+    </div>
+</script>
+
 <script type="text/javascript">
     var aGrid = false;
     var theGrids = [
