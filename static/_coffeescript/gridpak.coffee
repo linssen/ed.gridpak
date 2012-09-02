@@ -239,12 +239,11 @@ jQuery ->
                 buttons:
                     "Cancel": -> $(this).dialog "close"
         
-        updateGrid: =>
+        getOptions: =>
             ###
-            Fetches the options from the form and sets them to the current grid.
+            Fetches the options of the current grid from the form
             ###
             grid = @collection.getCurrent()
-
             gridOptions =
                 colNum: parseInt $("#id_col_num").val()
                 gutterWidth: parseFloat $("#id_gutter_width").val()
@@ -252,7 +251,12 @@ jQuery ->
                 paddingWidth: parseFloat $("#id_padding_width").val()
                 paddingType: $("#id_padding_type").val()
 
-            grid.set gridOptions
+        updateGrid: =>
+            ###
+            Fetches the options from the form and sets them to the current grid.
+            ###
+
+            grid.set @getOptions
 
         refreshOptions: =>
             ###
