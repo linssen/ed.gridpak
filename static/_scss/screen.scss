@@ -595,10 +595,12 @@ div#content_wrapper {
 #browser {
     position:relative;
     width:960px;
+    padding-bottom:calc-em(20);
+    margin-left:calc-em(20);
 
     #browser_handle {
         width:12px;
-        height:100%;
+        height:$gridheight;
         padding:1px 0;
         position:absolute;
         top:0;
@@ -613,15 +615,14 @@ div#content_wrapper {
 }
 
 #grid_list {
-    margin-left:calc-em(20);
     margin-top:calc-em(20);
-    height:20em;
+    height:$gridheight;
     position:relative;
 
 }
 .grid {
     background:$white;
-    height:20em;
+    height:$gridheight;
     border:1px solid $black;
     display:none;
 
@@ -655,7 +656,7 @@ div#content_wrapper {
 
     .col {
         float:left;
-        height:20em;
+        height:$gridheight;
         background:#E78484;
         @include box_sizing(border-box);
         @include prefixer (background-clip, padding-box);
