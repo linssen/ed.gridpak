@@ -623,7 +623,7 @@ div#content_wrapper {
             padding:calc-em(5, 13) calc-em(15, 13) calc-em(5, 13) calc-em(10, 13);
             color:#666;
             border:none;
-            background:transparent url(/static/images/site/icons/select_arrow.png) no-repeat 2em 50%;
+            background:transparent url(/static/images/site/icons/select_arrow.png) no-repeat 2.3em 50%;
             @include prefixer (appearance, none);
         }
     }
