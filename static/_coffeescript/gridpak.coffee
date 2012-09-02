@@ -277,7 +277,7 @@ jQuery ->
             grid = @collection.getCurrent()
 
             $select = $(e.target)
-            $input = $select.prev("input")
+            $input = $select.parent().prev("input")
             oldWidth = $input.val()
 
             # If we've switched from % to px
