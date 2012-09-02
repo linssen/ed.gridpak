@@ -10,7 +10,7 @@
         <li id="new_grid"><a href="#">New breakpoint</a></li>
     </ul> <!-- // #tabs -->
 
-    <div id="options">
+    <div id="options" class="options">
 
         <form>
             <div>
@@ -84,18 +84,20 @@
 <script type="text/template" id="grid_new_template">
     <div class="contents">
         <form>
+            <fieldset class="options">
+                <div>
+                    <label for="id_breakpoint_position">Breakpoint position:</label>
+                    <input type="number" name="minWidth" id="id_breakpoint_position" value="<%= breakpointPosition %>" min="0" step="1"> 
+                </div>
+            </fieldset>
             <div>
-                <label for="id_breakpoint_position">Breakpoint position:</label>
-                <input type="number" name="minWidth" id="id_breakpoint_position" value="<%= breakpointPosition %>" min="0" step="1"> 
+                <input type="hidden" name="colNum" value="<%= colNum %>">
+                <input type="hidden" name="paddingWidth" value="<%= paddingWidth %>">
+                <input type="hidden" name="paddingType" value="<%= paddingType %>">
+                <input type="hidden" name="gutterWidth" value="<%= gutterWidth %>">
+                <input type="hidden" name="gutterType" value="<%= gutterType %>">
             </div>
-            <div>
-                <input type="" name="colNum" value="<%= colNum %>">
-                <input type="" name="paddingWidth" value="<%= paddingWidth %>">
-                <input type="" name="paddingType" value="<%= paddingType %>">
-                <input type="" name="gutterWidth" value="<%= gutterWidth %>">
-                <input type="" name="gutterType" value="<%= gutterType %>">
-            </div>
-            <button type="submit" class="btn btn-primary">OK</button>
+            <button type="submit" class="btn btn_primary">OK</button>
             <a href="#" class="close">Cancel</a>
         </form>
         <hr>

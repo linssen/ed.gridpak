@@ -146,7 +146,11 @@ dl {
 }
 
 hr {
-    
+    border:0 dashed #ccc;
+    border-top-width:1px;
+    clear:both;
+    height:0;
+    margin:calc-em(20) 0;
 }
 
 blockquote {
@@ -252,7 +256,7 @@ video {
     } // form
 
     fieldset {
-        
+        margin-bottom:calc-em(20);
     }
 
     label {
@@ -287,6 +291,14 @@ video {
             cursor:pointer;
             vertical-align:baseline;
         }
+    }
+
+    button.btn_primary {
+        background:#D43033;
+        border:0;
+        color:$white;
+        padding:calc-em(10) calc-em(30);
+        margin-right:calc-em(20);
     }
 
     // @end FORMS //
@@ -449,10 +461,6 @@ div#content_wrapper {
 
     #download {
         float:left;
-        background:#D43033;
-        border:0;
-        color:$white;
-        padding:calc-em(10) calc-em(20);
     }
 
     // @end FOOTER //
@@ -598,7 +606,7 @@ div#content_wrapper {
     }
 }
 
-#options {
+.options {
     background-color:#fbfbfb;
     padding:calc-em(20) calc-em(23);
     overflow:hidden;
@@ -755,14 +763,30 @@ div#content_wrapper {
     padding:calc-em(20);
     @include prefixer(box-shadow, 5px 5px 0 rgba(0,0,0,0.2));
 
+    .close {
+        color:#878787;
+        text-decoration:underline;
+
+        &:hover,
+        &:focus {
+            color:$black;
+        }
+    }
+
     .ui-dialog-titlebar {
         font-size:calc-em(20);
         display:block;
         cursor:move;
+        margin-bottom:calc-em(20);
 
         .ui-icon-closethick {
             display:none;
         }
+    }
+
+    fieldset.options {
+        padding:calc-em(15);
+        background-color:#f1f1f1;
     }
 }
 
