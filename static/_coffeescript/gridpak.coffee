@@ -224,38 +224,62 @@ jQuery ->
         resize: (e, ui) ->
             # resizer stuff
         
+        openDialogue: (title, data, template) =>
+            ###
+            Launches a new jQuery dialog box
+            ###
+            template = _.template $(template).html(), data
+            $dialogue = $(template).dialog
+                modal: true
+                title: title
+                draggable: true
+            $dialogue.find(".close").on "click", (e) ->
+                e.preventDefault()
+                $dialogue.dialog("close")
+
+            return $dialogue
+        
         newGrid: (e) =>
             e.preventDefault()
-
+            title = "New breakpoint"
+            template = "#grid_new_template"
+            gridOptions = @getOptions
             data =
                 breakpointPosition: @$browser.width()
+            # We'll steal the current grid's options for a start
+            _.extend data, gridOptions()
+            $dialogue = @openDialogue(title, data, template)
 
-            template = _.template $("#grid_new_template").html(), data 
-
-            $(template).dialog
-                modal: true
-                title: "Add new breakpoint"
-                draggable: true
-                buttons:
-                    "Cancel": -> $(this).dialog "close"
+            $dialogue.find("form").submit (e) =>
+                e.preventDefault()
+                @collection.add @getOptions $(e.target)
+                $dialogue.dialog("close")
         
         getOptions: ($form) =>
             ###
             Fetches the options of the current grid from the form
             ###
+            if not $form? then $form = $("#options form")
+
             gridOptions =
                 colNum: parseInt $form.find("[name='colNum']").val()
                 gutterWidth: parseFloat $form.find("[name='gutterWidth']").val()
                 gutterType: $form.find("[name='gutterType']").val()
                 paddingWidth: parseFloat $form.find("[name='paddingWidth']").val()
                 paddingType: $form.find("[name='paddingType']").val()
+            
+            $minWidth = $form.find("[name='minWidth']")
+            if $minWidth.length > 0
+                _.extend(gridOptions, {minWidth: parseInt $minWidth.val()})
+
+            return gridOptions
 
         updateGrid: =>
             ###
             Fetches the options from the form and sets them to the current grid.
             ###
             grid = @collection.getCurrent()
-            grid.set @getOptions $("#options form")
+            grid.set @getOptions()
 
         refreshOptions: =>
             ###
