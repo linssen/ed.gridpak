@@ -601,9 +601,31 @@ div#content_wrapper {
         float:left;
         margin-right:calc-em(25, 13);
     }
-
+    input,
+    .select {
+        display:inline-block;
+        border:1px solid #B9B9B9;
+        padding:calc-em(5, 13) calc-em(5, 13) calc-em(5, 13) calc-em(10, 13);
+        margin:0;
+        line-height:1em;
+        color:#666;
+    }
     input {
         width:3em;
+    }
+    .select {
+        float:none;
+        margin:0;
+        padding:0;
+        margin-left:-5px;
+
+        select {
+            padding:calc-em(5, 13) calc-em(15, 13) calc-em(5, 13) calc-em(10, 13);
+            color:#666;
+            border:none;
+            background:transparent url(/static/images/site/icons/select_arrow.png) no-repeat 2em 50%;
+            @include prefixer (appearance, none);
+        }
     }
 }
 

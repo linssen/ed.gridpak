@@ -19,18 +19,22 @@
         <div>
             <label for="id_gutter_width">Gutter width:</label>
             <input data-grid-attr="gutterWidth" id="id_gutter_width" type="number" min="0" step="0.1">
-            <select data-grid-attr="gutterType" id="id_gutter_type">
-                <option value="px">px</option>
-                <option value="%">%</option>
-            </select>
+            <div class="select">
+                <select data-grid-attr="gutterType" id="id_gutter_type">
+                    <option value="px">px</option>
+                    <option value="%">%</option>
+                </select>
+            </div>
         </div>
         <div>
             <label for="id_padding_width">Padding width:</label>
             <input data-grid-attr="paddingWidth" id="id_padding_width" type="number" min="0" step="0.1">
-            <select data-grid-attr="paddingType" id="id_padding_type">
-                <option value="px">px</option>
-                <option value="%">%</option>
-            </select>
+            <div class="select">
+                <select data-grid-attr="paddingType" id="id_padding_type">
+                    <option value="px">px</option>
+                    <option value="%">%</option>
+                </select>
+            </div>
         </div>
 
     </div> <!-- // #options -->
