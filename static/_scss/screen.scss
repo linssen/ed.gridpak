@@ -528,7 +528,7 @@ div#content_wrapper {
 // @start GRIDPAK 
 
 #gridpak {
-    background:url(/static/images/site/grid.png) repeat 0 0;
+    background:url(/static/images/site/grid.png) repeat calc-em(19) calc-em(20);
     position:relative;
 }
 
