@@ -166,6 +166,11 @@ jQuery ->
             @model.bind 'remove', @unrender
 
         render: =>
+            if @model.get "current"
+                $(@el).addClass "cur"
+            else
+                $(@el).removeClass "cur"
+
             $(@el).html @template @model.toJSON()
 
         unrender: =>
