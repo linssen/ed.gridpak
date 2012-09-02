@@ -223,6 +223,7 @@ jQuery ->
 
         resize: (e, ui) ->
             # resizer stuff
+            $("#current_width input").val @$browser.width()
         
         openDialogue: (title, data, template) =>
             ###

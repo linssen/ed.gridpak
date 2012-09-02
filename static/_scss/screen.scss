@@ -658,6 +658,29 @@ div#content_wrapper {
     padding-bottom:calc-em(30);
     margin-left:calc-em(20);
 
+    #current_width {
+        position:absolute;
+        top:0;
+        z-index:99;
+        line-height:1em;
+        padding:0.5em;
+        right:0;
+        background:$black;
+        color:$white;
+        font-size:calc-em(10);
+
+        input {
+            border:none;
+            @include prefixer (appearance, none);
+            background:transparent;
+            padding:0;
+            margin:0;
+            width:3em;
+            text-align:right;
+            color:$white;
+        }
+    }
+
     #browser_handle {
         width:12px;
         height:$gridheight;
@@ -666,9 +689,8 @@ div#content_wrapper {
         top:0;
         right:0;
         background:rgba(0,0,0,0.3);
-        display:block;
         cursor:col-resize;
-        z-index:999;
+        z-index:50;
     }
 
 
