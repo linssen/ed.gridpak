@@ -533,7 +533,8 @@ div#content_wrapper {
     display:block;
     overflow:hidden;
     background:#353535;
-    font-size:calc-em(11);
+    font-size:calc-em(13);
+    font-weight:bold;
     padding:0 calc-em(24);
 
     li {
@@ -549,8 +550,19 @@ div#content_wrapper {
             &:focus {
                 background-color:#474747;
             }
+            &.delete {
+                color:#727272;
+                padding-left:0;
 
-
+                &:hover,
+                &:focus {
+                    color:$white;
+                }
+            }
+        }
+        &#new_grid a {
+            padding-left:calc-em(32, 13);
+            background:url(/static/images/site/icons/new_grid.png) no-repeat calc-em(12, 13) 50%;
         }
         &.cur {
             background:$white;
@@ -562,6 +574,10 @@ div#content_wrapper {
             &.open {
                 cursor:default;
             } 
+            &.delete:hover,
+            &.delete:focus {
+                color:$black;
+            }
 
             &:hover,
             &:focus {

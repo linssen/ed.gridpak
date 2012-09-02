@@ -7,7 +7,7 @@
 <div id="gridpak">
 
     <ul class="horizontal" id="tabs">
-        <li><a href="#" class="create">Create</a></li>
+        <li id="new_grid"><a href="#">New breakpoint</a></li>
     </ul> <!-- // #tabs -->
 
     <div id="options">
@@ -71,7 +71,7 @@
 <script type="text/template" id="grid_tab_template">
     <li class="<%= (current) ? 'cur' : '' %>">
         <a href="#" class="open"><%= minWidth %> - <%= (maxWidth) ? maxWidth : '∞' %></a>
-        <a href="#" class="delete">x</a>
+        <a href="#" class="delete" title="Delete this grid">x</a>
     </li>
 </script>
 

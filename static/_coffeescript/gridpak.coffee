@@ -152,7 +152,6 @@ jQuery ->
                 resize: (e, ui) =>
                     @resize(e, ui)
 
-
             return template
 
         unrender: =>
@@ -269,7 +268,7 @@ jQuery ->
             gridView = new GridView model: grid
             gridTabView = new GridTabView model: grid
             $('#grid_list').append gridView.render()
-            $('#tabs').append gridTabView.render()
+            $('#new_grid').before gridTabView.render()
 
         typeSwitch: (e) =>
             ###
