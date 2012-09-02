@@ -39,6 +39,7 @@
 
     <div id="browser">
 
+        <div id="browser_handle" class="ui-resizable-handle ui-resizable-e"></div>
         <ul id="grid_list"></ul> <!-- // #grids -->
 
     </div> <!-- // #browser -->
@@ -46,17 +47,24 @@
 </div> <!-- // #gridpak -->
 
 <script type="text/template" id="grid_template">
-    <div class="handle" style="left:<%= minWidth %>px"></div>
 
     <div class="grid<%= (current) ? ' cur' : '' %>" style="<%= (gutterType == 'px') ? 'margin-left:-' + gutterWidth + gutterType : '' %>;">
+
+        <div class="boundary">
+            <div class="marker ui-resizable-handle ui-resizable-e"></div>
+        </div>
+
         <% var i=0; for(i; i<colNum; i++) { %>
+
             <div class="col" style="width:<%= colWidth %>%; border-left-width:<%= (gutterType == 'px') ? gutterWidth : 0 %>px; margin-left:<%= (gutterType == '%' && i > 0) ? gutterWidth : 0 %>%; padding:0 <%= paddingWidth + paddingType %>;">
                 <div class="visible"></div>
                 <span class="width"><%= Math.round(colWidth * 100)/100  %></span>
             </div><!-- // .col -->
+
         <% } %>
     </div><!-- // .cols -->
-</div>
+
+</div> <!-- // .grid -->
 </script>
 
 <script type="text/template" id="grid_tab_template">

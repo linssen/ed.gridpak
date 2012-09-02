@@ -596,7 +596,7 @@ div#content_wrapper {
     position:relative;
     width:960px;
 
-    .ui-resizable-e {
+    #browser_handle {
         width:12px;
         height:100%;
         padding:1px 0;
@@ -606,26 +606,18 @@ div#content_wrapper {
         background:rgba(0,0,0,0.3);
         display:block;
         cursor:col-resize;
+        z-index:999;
     }
 
-    .handle {
-        display:block;
-        z-index:99;
-        position:absolute;
-        cursor:col-resize;
-        top:calc-em(20) * -1;
-        right:-5px;
-        margin-top:-24px;
-        background:url(/static/images/site/icons/handle.png) no-repeat 0 0;
-        width:11px;
-        height:20px;
-    }
+
 }
 
 #grid_list {
     margin-left:calc-em(20);
     margin-top:calc-em(20);
     height:20em;
+    position:relative;
+
 }
 .grid {
     background:$white;
@@ -635,6 +627,30 @@ div#content_wrapper {
 
     &.cur {
         display:block;
+    }
+
+    .boundary {
+        display:block;
+        height:100%;
+        position:absolute;
+        top:calc-em(-20);
+        left:0;
+        padding-bottom:calc-em(20);
+        width:100%;
+        background:rgba(255,255,255,0.5);
+
+        .marker {
+            display:block;
+            z-index:99;
+            position:absolute;
+            cursor:col-resize;
+            top:0;
+            right:-5px;
+            margin-top:-24px;
+            background:url(/static/images/site/icons/handle.png) no-repeat 0 0;
+            width:11px;
+            height:20px;
+        }
     }
 
     .col {

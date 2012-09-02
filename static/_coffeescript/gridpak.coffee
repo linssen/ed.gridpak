@@ -134,6 +134,7 @@ jQuery ->
     class GridView extends Backbone.View
         tagName: 'li'
         template: _.template $('#grid_template').html()
+        $boundary: false
 
         initialize: ->
             @model.bind 'change', @render
@@ -141,7 +142,18 @@ jQuery ->
             @model.bind 'error', @errorHandler
 
         render: =>
-            $(@el).html @template @model.toJSON()
+            template = $(@el).html @template @model.toJSON()
+
+            @$boundary = $(@el).find ".boundary"
+            @$boundary.resizable
+                handles: {e: ".marker"}
+                grid: 10
+                minWidth: 200
+                resize: (e, ui) =>
+                    @resize(e, ui)
+
+
+            return template
 
         unrender: =>
             $(@el).remove()
@@ -183,7 +195,7 @@ jQuery ->
     class AppView extends Backbone.View
         el: $ '#gridpak'
         $browser: {}
-        snap: 20
+        snap: 10
 
         initialize: =>
             @collection = new GridList(theGrids)
@@ -192,7 +204,7 @@ jQuery ->
             @collection.each(@appendGrid)
 
             @$browser = $("#browser").resizable
-                handles: "e"
+                handles: {"e", "#browser_handle"}
                 grid: @snap
                 minWidth: 200
                 resize: (e, ui) =>
