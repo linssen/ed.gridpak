@@ -453,9 +453,31 @@ div#content_wrapper {
         background:$white;
         padding:calc-em(18) calc-em(20);
         overflow:hidden;
+        color:#666;
+
+        p {
+            padding-top:calc-em(10);
+        }
         
         .credit {
             float:right;
+
+            a {
+                position:relative;
+                top:-0.5em;
+                left:-0.2em;
+                display:inline-block;
+                height:30px;
+                width:87px; 
+                text-indent:-999em;
+                overflow:hidden;
+                background:url(/static/images/site/erskine.svg) no-repeat 0 0;
+
+                &:hover,
+                &:focus {
+                    background-position:0 -30px;
+                }
+            }
         }
     }
 
