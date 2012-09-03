@@ -339,7 +339,7 @@ jQuery ->
 
             # HTML data attributes are camel cased to jQuery attrs, and we'll
             # use them to set the correct grid attribute
-            grid.set $input.data("gridAttr"), newWidth
+            grid.set $input.attr("name"), newWidth
 
             # Set the number input increments to something more useful
             # (percentages are float, and px are integers)
