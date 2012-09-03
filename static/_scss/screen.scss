@@ -566,6 +566,7 @@ div#content_wrapper {
     display:block;
     overflow:hidden;
     background:#353535;
+    font-family:$sans2;
     font-size:calc-em(13);
     font-weight:bold;
     padding:0 calc-em(24);
@@ -641,6 +642,7 @@ div#content_wrapper {
     }
     input,
     .select {
+        font-family:$sans2;
         display:inline-block;
         border:1px solid #B9B9B9;
         padding:calc-em(5, 13) calc-em(5, 13) calc-em(5, 13) calc-em(10, 13);
@@ -652,13 +654,14 @@ div#content_wrapper {
         width:3em;
     }
     .select {
+        font-family:$sans2;
         float:none;
         margin:0;
         padding:0;
-        margin-left:-5px;
+        margin-left:-4px;
 
         select {
-            padding:calc-em(5, 13) calc-em(15, 13) calc-em(5, 13) calc-em(10, 13);
+            padding:calc-em(4, 13) calc-em(15, 13) calc-em(5, 13) calc-em(10, 13);
             color:#666;
             border:none;
             background:transparent url(/static/images/site/icons/select_arrow.png) no-repeat 2.3em 50%;
@@ -681,6 +684,7 @@ div#content_wrapper {
     margin-left:calc-em(20);
 
     #current_width {
+        font-family:$sans2;
         position:absolute;
         top:0;
         z-index:99;
@@ -775,6 +779,7 @@ div#content_wrapper {
 
         .width {
             font-size:calc-em(10);
+            font-family:$sans2;
             position:absolute;
             bottom:-1.5em;
             left:0;
