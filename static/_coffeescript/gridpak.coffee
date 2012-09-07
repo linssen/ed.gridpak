@@ -234,6 +234,9 @@ jQuery ->
                 modal: true
                 title: title
                 draggable: true
+                open: -> $("body").addClass "dialogue_open"
+                close: -> $("body").removeClass "dialogue_open"
+
             $dialogue.find(".close").on "click", (e) ->
                 e.preventDefault()
                 $dialogue.dialog("close")

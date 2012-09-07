@@ -806,6 +806,9 @@ div#content_wrapper {
     left:0;
     background:rgba(255,255,255,0.7);
 }
+.dialogue_open #page {
+    @include prefixer(filter, blur(1.3px));
+}
 .ui-dialog {
     border:1px solid #bbb;
     background:$white;
