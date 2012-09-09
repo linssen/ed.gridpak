@@ -3,4 +3,6 @@
 /wsgi_handler.py
 *.pyc
 /static/css/screen.css
+/static/js/gridpak.js
+/static/js/EDJ.js
 /local_settings.py
