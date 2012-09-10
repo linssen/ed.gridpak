@@ -223,17 +223,28 @@ class AppView extends Backbone.View
         # resizer stuff
         $("#current_width input").val @$browser.width()
     
-    openDialogue: (title, data, template) =>
+    openDialogue: (title, data, template, large) =>
         ###
         Launches a new jQuery dialog box
         ###
         template = _.template $(template).html(), data
-        $dialogue = $(template).dialog
+        params =
             modal: true
             title: title
             draggable: true
             open: -> $("body").addClass "dialogue_open"
-            close: -> $("body").removeClass "dialogue_open"
+            close: -> $("body").removeClass "dialogue_open dark large"
+
+        if large
+            _.extend params, {
+                    width: "75%", 
+                    draggable: false
+                    open: -> $("body").addClass "dialogue_open dark large"
+                }
+
+        console.log params
+
+        $dialogue = $(template).dialog(params)
 
         $dialogue.find(".close").on "click", (e) ->
             e.preventDefault()
@@ -360,7 +371,8 @@ class AppRouter extends Backbone.Router
         title = "About page"
         data = {}
         template = "#dialogue_page"
-        gridpak.view.openDialogue(title, data, template)
+        large = true
+        gridpak.view.openDialogue(title, data, template, large)
 
 jQuery ->
     gridpak.view = new AppView

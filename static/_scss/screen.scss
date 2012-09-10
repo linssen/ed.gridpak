@@ -431,6 +431,7 @@ div#content_wrapper {
         color:$grey1;
         overflow:hidden;
         padding:calc-em(20) calc-em(23);
+        position:relative;
 
         a {
             color:$grey1;
@@ -805,9 +806,19 @@ div#content_wrapper {
     top:0;
     left:0;
     background:rgba(255,255,255,0.7);
+
+}
+.dark {
+    .ui-widget-overlay {
+        background:rgba(0,0,0,0.8);
+    }
+    #header {
+        z-index:1500;
+    }
+
 }
 .dialogue_open #page {
-    @include prefixer(filter, blur(1.3px));
+    /*@include prefixer(filter, blur(1px));*/
 }
 .ui-dialog {
     border:1px solid #bbb;
