@@ -847,73 +847,73 @@ div#content_wrapper {
             display:none;
         }
     }
+    &.large .ui-dialog-titlebar {
+        display:none;
+    }
 
     fieldset.options {
         padding:calc-em(15);
         background-color:#f1f1f1;
     }
 
-    &.large {
-        .ui-dialog-titlebar {
-            display:none;
-        }
-        .content_pri {
-            float:right;
-            width:70%;
-        }
-        .content_sec {
-            font-size:calc-em(17);
-            float:left;
-            width:30%;
-            background:#eee;
-            border-right:1px solid #ccc;
-            margin:calc-em(20, 17) * -1;
+    .content_pri {
+        float:right;
+        width:70%;
+    }
+    .content_sec {
+        font-size:calc-em(17);
+        float:left;
+        width:30%;
+        background:#eee;
+        border-right:1px solid #ccc;
+        margin:calc-em(20, 17) * -1;
 
-            .nav_pri {
-                a {
-                    display:block;
-                    line-height:1em;
-                    padding:calc-em(15, 17);
-                    color:#111;
 
-                    &:hover,
-                    &:focus {
-                        background-color:#fff;
-                    }
-                }
-                > li > a {
-                    border-bottom:1px solid #ccc;
-                }
-                > li:last-child a {
-                    border-bottom:none;
-                }
-                .cur a {
-                    border-bottom-style:dashed;
-                }
-                li ul {
-                    display:none;
+    }
+    .nav_pri {
+        a {
+            display:block;
+            line-height:1em;
+            padding:calc-em(15, 17);
+            color:#111;
 
-                    a {
-                        font-size:calc-em(15, 17);
-                        padding-left:calc-em(25, 15);
-                        color:#606060;
-                        background-color:#fff;
-
-                        &:hover,
-                        &:active {
-                            background-color:#efefef;
-                        }
-                    }
-                    li:last-child a {
-                        border-bottom:1px solid #ccc;
-                    }
-                }
-                li.cur ul {
-                    display:block;
-                }
+            &:hover,
+            &:focus {
+                background-color:#fff;
             }
         }
+        > li > a {
+            border-bottom:1px solid #ccc;
+        }
+        > li:last-child a {
+            border-bottom:none;
+        }
+        .cur a {
+            border-bottom-style:dashed;
+        }
+        li ul {
+            display:none;
+
+            a {
+                font-size:calc-em(15, 17);
+                padding-left:calc-em(25, 15);
+                color:#606060;
+                background-color:#fff;
+
+                &:hover,
+                &:active {
+                    background-color:#efefef;
+                }
+            }
+            li:last-child a {
+                border-bottom:1px solid #ccc;
+            }
+        }
+        li.cur ul {
+            display:block;
+        }
     }
+
 }
 
 // @end GRIDPAK
