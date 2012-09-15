@@ -227,22 +227,22 @@ class AppView extends Backbone.View
         ###
         Launches a new jQuery dialog box
         ###
+        _.extend data, title: title
         template = _.template $(template).html(), data
         params =
             modal: true
             title: title
             draggable: true
+            dialogClass: if large then "large" else "regular"
             open: -> $("body").addClass "dialogue_open"
-            close: -> $("body").removeClass "dialogue_open dark large"
+            close: -> $("body").removeClass "dialogue_open large"
 
         if large
             _.extend params, {
                     width: "75%", 
                     draggable: false
-                    open: -> $("body").addClass "dialogue_open dark large"
+                    open: -> $("body").addClass "dialogue_open large"
                 }
-
-        console.log params
 
         $dialogue = $(template).dialog(params)
 

@@ -84,7 +84,28 @@
 
 <script type="text/template" id="dialogue_page">
     <div class="contents">
-        <p>Some page</p>
+
+        <div class="content_pri">
+            <h1><%= title %></h1>
+            <p>Some page</p>
+        </div>
+
+        <div class="content_sec">
+            <ul class="nav_pri">
+                <li><a href="">About</a></li>
+                <li><a href="">About</a></li>
+                <li class="cur">
+                    <a href="">About</a>
+                    <ul>
+                        <li><a href="">Sub menu</a></li>
+                        <li><a href="">Sub menu</a></li>
+                        <li><a href="">Sub menu</a></li>
+                    </ul>
+                </li>
+                <li><a href="">About</a></li>
+            </ul>
+        </div>
+
     </div>
 </script>
 
