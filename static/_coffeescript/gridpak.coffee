@@ -378,6 +378,6 @@ jQuery ->
     gridpak.view = new AppView
     gridpak.router = new AppRouter
 
-    Backbone.history.start(pushStage: true)
+    Backbone.history.start(pushState: true)
 
 window.gridpak = {}
