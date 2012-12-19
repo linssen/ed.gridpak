@@ -2,6 +2,7 @@
 /static_collected
 /wsgi_handler.py
 *.pyc
+env
 /static/css/screen.css
 /static/js/gridpak.js
 /static/js/EDJ.js
