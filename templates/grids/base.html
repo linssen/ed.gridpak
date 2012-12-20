@@ -84,19 +84,7 @@
         <script src="{{ STATIC_URL }}js/jquery-ui-1.8.23.custom.min.js"></script>
         <script src="{{ STATIC_URL }}js/underscore.js"></script>
         <script src="{{ STATIC_URL }}js/backbone.js"></script>
-        <!-- <script src="{{ STATIC_URL }}js/EDJ.js"></script> -->
-        <script src="{{ STATIC_URL }}js/gridpak.js"></script>
-
-        <script type="text/javascript">
-        /*
-        $(document).ready(function() {
-            var edj = new EDJ({
-                debug: {{ debug|lower }},
-                STATIC_URL: '{{ STATIC_URL }}'
-            });
-        });
-        */
-        </script>
+        <script type="text/coffeescript" src="{{ STATIC_URL }}_coffeescript/gridpak.coffee"></script>
         {% endcompress %}
 
     </body>

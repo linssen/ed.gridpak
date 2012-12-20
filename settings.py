@@ -155,7 +155,9 @@ DEBUG_TOOLBAR_CONFIG = {
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'sass --scss {infile} {outfile}'),
+    ('text/coffeescript', 'coffee --compile --stdio'),
 )
+
 
 # Do not edit below this line
 try:
