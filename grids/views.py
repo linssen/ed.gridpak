@@ -16,22 +16,10 @@ from django.conf import settings
 from django.core.files import File
 
 from gridpak.grids.models import Grid
-from gridpak.minidetector import detect_mobile
 
-@detect_mobile
 def index(request):
-    # Show them the mobile template if they're on mobile
-    if request.mobile:
-        return  HttpResponseRedirect(reverse('mobile'))
-    else:
-        return render_to_response('grids/index.html', {
-            'cur_page': 'index',
-            'debug': settings.DEBUG,
-        }, context_instance=RequestContext(request))
-
-def mobile(request):
-    return render_to_response('grids/mobile.html', {
-        'cur_page': 'mobile',
+    return render_to_response('grids/index.html', {
+        'cur_page': 'index',
         'debug': settings.DEBUG,
     }, context_instance=RequestContext(request))
 
