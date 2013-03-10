@@ -28,9 +28,10 @@ We prefer to run our Django projects using [virtualenv][], and while we won't go
 1. Clone this repo into your directory, __careful to use the name gridpak__, otherwise Django will throw a hissy fit `git clone git@github.com:erskinedesign/ed.gridpak.git gridpak`
 1. Start a new virtual environment `virtualenv --distribute env`
 1. Activate that virtual environment `source env/bin/activate` you should then see that you're in the `env` environent in your bash
-1. Install all the requisit packages `pip install -r gridpak/packages`
+1. Install all the requisit packages `pip install -r gridpak/requirements.pip`
 1. Create a `local_settings.py` file (you can copy the `local_settings.sample.txt` and it should work fine)
-1. Compile the [LESS][] file so you don't get an error about not being able to find the layout stylesheets
+1. Install all the NPM packages with `npm install`
+1. Grunt to build all scss, coffee script etc. `grunt`
 1. You should now be able to run the app `cd gridpak && python manage.py runserver`
 1. Visit the url in your browser (`http://localhost:8000` by default,) and you're away
 
