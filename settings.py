@@ -42,7 +42,6 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
 
 MEDIA_ROOT = CURDIR + '/media/'
@@ -140,7 +139,6 @@ INSTALLED_APPS = (
     # Third-party apps
     'south',
     'debug_toolbar',
-    'compressor',
     # Project-specific apps
 )
 
@@ -152,12 +150,6 @@ INTERNAL_IPS = (
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
-
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'sass --scss {infile} {outfile}'),
-    ('text/coffeescript', 'coffee --compile --stdio'),
-)
-
 
 # Do not edit below this line
 try:
