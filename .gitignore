@@ -1,9 +1,10 @@
 !.gitignore
+*.pyc
+/node_modules
+/static/*/build
+/static/*/dist
 /static_collected
 /wsgi_handler.py
 *.pyc
 env
-/static/css/screen.css
-/static/js/gridpak.js
-/static/js/EDJ.js
 /local_settings.py

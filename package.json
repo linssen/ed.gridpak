@@ -1,0 +1,29 @@
+{
+  "name": "gridpak",
+  "version": "1.0.0",
+  "description": "Responsive layout tool",
+  "main": "Gruntfile.coffee",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/linssen/ed.gridpak.git"
+  },
+  "keywords": [
+    "responsive",
+    "backbonejs"
+  ],
+  "author": "Wil Linssen",
+  "readmeFilename": "README.markdown",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-sass": "~0.2.2",
+    "grunt-contrib-coffee": "~0.6.0",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-contrib-qunit": "~0.2.0",
+    "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-cssmin": "~0.4.1",
+    "grunt-contrib-uglify": "~0.1.2"
+  }
+}

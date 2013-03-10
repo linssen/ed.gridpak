@@ -131,7 +131,7 @@ class GridList extends Backbone.Collection
 
 class GridView extends Backbone.View
     tagName: 'li'
-    template: _.template $('#grid_template').html()
+    template: _.template $('#grid_template').html().trim()
     $boundary: false
 
     initialize: ->
@@ -157,7 +157,7 @@ class GridView extends Backbone.View
     
 class GridTabView extends Backbone.View
     tagName: 'li'
-    template: _.template $('#grid_tab_template').html()
+    template: _.template $('#grid_tab_template').html().trim()
 
     initialize: ->
         @model.bind 'change', @render
@@ -228,7 +228,7 @@ class AppView extends Backbone.View
         Launches a new jQuery dialog box
         ###
         _.extend data, title: title
-        template = _.template $(template).html(), data
+        template = _.template $(template).html().trim(), data
         params =
             modal: true
             title: title
@@ -311,8 +311,9 @@ class AppView extends Backbone.View
         minWidth = if minWidth > minMinWidth then minWidth else minMinWidth
         # TODO: figure out with @$browser isn't working here
         $browser = $("#browser")
-        $browser.resizable "option", "minWidth", minWidth
-        $browser.resizable "option", "maxWidth", maxWidth
+        if $browser.resizable()?
+            $browser.resizable "option", "minWidth", minWidth
+            $browser.resizable "option", "maxWidth", maxWidth
         if $browser.width() < minWidth then $browser.width minWidth
         if $browser.width() > maxWidth then $browser.width maxWidth
 
